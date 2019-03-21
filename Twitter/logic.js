@@ -1,7 +1,9 @@
 // -----------------------
 // DUMMY data..
 // -----------------------
-const posts = [
+let p_id = 2
+let c_id = 10
+let posts = [
     {
         id: "p1",
         text: "First post!",
@@ -23,8 +25,7 @@ const posts = [
 ]
 const logic = function () {
 
-    let p_id = 2
-    let c_id = 10
+
     const getPosts = function () {
         return posts
     }
@@ -52,13 +53,14 @@ const logic = function () {
         return false
     }
 
-    const addComment = function (text, postID) {
+    const addComment = function (argText, postID) {
 
         const curPost = findPostById(postID)
         c_id += 1
+        console.log("c_id: " + c_id)
         const curComment = {
             id: "c" + c_id,
-            comment: text
+            text: argText
         }
 
         curPost.comments.push(curComment)

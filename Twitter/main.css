@@ -60,6 +60,7 @@ body{
 .comments{
     margin-left: 10px;
     margin: 10px;
+   
 }
 .commentBtn{
     margin: 2px;
@@ -73,7 +74,9 @@ body{
     border-radius: 3px;
     font-size: 0.8em;
 }
-
+.deletePostButton {
+    float: right
+}
 .delete-comment{
     cursor: pointer;
     color: #e74c3c;
