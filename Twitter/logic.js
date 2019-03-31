@@ -25,7 +25,6 @@ let posts = [
 ]
 const logic = function () {
 
-
     const getPosts = function () {
         return posts
     }
