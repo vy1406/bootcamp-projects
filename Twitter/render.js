@@ -1,4 +1,3 @@
-
 const Renderer = function () {
 
     const renderPosts = function (posts) {
@@ -98,32 +97,32 @@ const Renderer = function () {
             updatePage()
         })
     }
-    const creatCommentFromInput = function ($curPostElem, $curCommentToAdd) {
 
-        const $icon = $("<i></i>")
-        $icon.addClass("fas fa-times")
-        $icon.css({
-            "color": "red",
-            "margin": "2px"
-        })
-        $icon.on("click", function () {
-            const curDiv = $(this).closest("div").remove()
-            const postId = $(this).closest(".post").attr("id")
-            const commentId =
-                logic().removeComment()
-        })
+    // const creatCommentFromInput = function ($curPostElem, $curCommentToAdd) {
 
-        const $curCommentToAdd = $("<div></div>")
-        $curCommentToAdd.addClass("comments")
+    //     const $icon = $("<i></i>")
+    //     $icon.addClass("fas fa-times")
+    //     $icon.css({
+    //         "color": "red",
+    //         "margin": "2px"
+    //     })
+    //     $icon.on("click", function () {
+    //         const curDiv = $(this).closest("div").remove()
+    //         const postId = $(this).closest(".post").attr("id")
+    //         const commentId =
+    //             logic().removeComment()
+    //     })
 
-        $curPostElem.append($curCommentToAdd)
+    //     const $curCommentToAdd = $("<div></div>")
+    //     $curCommentToAdd.addClass("comments")
 
-        $curCommentToAdd.append($icon)
-        $curCommentToAdd.append(`<span>${curComment.text}</span>`)
-    }
+    //     $curPostElem.append($curCommentToAdd)
+
+    //     $curCommentToAdd.append($icon)
+    //     $curCommentToAdd.append(`<span>${curComment.text}</span>`)
+    // }
 
     return {
         renderPosts: renderPosts
     }
 }
-

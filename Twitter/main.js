@@ -10,7 +10,6 @@ console.log(tweeter.getPosts())
 
 tweeter.removeComment("p2", "c6")
 
-
 renderer.renderPosts(tweeter.getPosts())
 
 $("#post").on("click", function () {
