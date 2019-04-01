@@ -1,0 +1,14 @@
+Exception - no helpers. 
+1. the quote works
+2. the aboutme works
+3. the friends - got 6 ppl
+4. the user - gets the user. ( exception in showing. )
+5. same with pokemon
+
+ToDo:
+stopped at Renderer.js line 7
+- helpers ( find in https://handlebarsjs.com/block_helpers.html)
+- user
+- friends
+- pokemon
+- extensions
