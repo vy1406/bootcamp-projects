@@ -91,7 +91,6 @@ const Renderer = function () {
         $button.addClass("deletePostButton")
         $curPostElem.append($button)
         $button.on("click", function() {
-            
             const postID =  $(this).closest(".post").attr("id")
             logic().removePost(postID) 
             updatePage()
