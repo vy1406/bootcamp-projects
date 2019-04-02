@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
+</head>
+
+<body>
+    <div id="search-player">
+        <input type="text" id="search-player-input" placeholder="seach player..." />
+        <button id="search-player-button">Search Player</button>
+    </div>
+
+    <div id="players"></div>
+
+    <script id="players-template" type="text/x-handlebars-template">
+        {{#each players}}
+            <div {{#if visited}}class="player visited" {{else}}class="player not-visited" {{/if}}>
+                <p class="name">{{name}} - {{location}}</p>
+                <br>
+                
+            </div>
+        {{/each}}
+    </script>
+
+    <script src="./jquery/dist/jquery.js"></script>
+    <script src="./handlebars/dist/handlebars.js"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>
