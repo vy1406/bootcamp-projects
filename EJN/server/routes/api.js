@@ -7,25 +7,29 @@ let arrPlayers = []
 // ---------------------------
 // new 1.2
 // ---------------------------
-router.get('/getTeams', function (req, res) {
-    console.log("getting teams")
-    const url = "http://data.nba.net/10s/prod/v1/2018/players.json";
-    request.get(url, (error, response, body) => {
-        const arg = JSON.parse(body)
-        this.players = (arg.league.standard).map(e => ({
-            firstName: e.firstName,
-            lastName: e.lastName,
-            pos: e.pos,
-            jersey: e.jersey,
-            isActive: e.isActive,
-            teamID: e.teams[e.teams.length - 1].teamId
-        }))
-        //console.log(this.players)
-        res.send(this.players)
-    });
+// router.get('/getTeams', function (req, res) {
+//     console.log("getting teams")
+//     const url = "http://data.nba.net/10s/prod/v1/2018/players.json";
+//     request.get(url, (error, response, body) => {
+//         const arg = JSON.parse(body)
+//         console.log(arg)
+//         this.players = (arg.league.standard).map(e => ({
+//             firstName: e.firstName,
+//             lastName: e.lastName,
+//             pos: e.pos,
+//             jersey: e.jersey,
+//             isActive: e.isActive,
+//             teamID: e.teams[e.teams.length - 1].teamId,
+//             img: `https://nba-players.herokuapp.com/players/${e.lastName}/${e.firstName}`
+//         }))
+//         //console.log(this.players)
+//         res.send(this.players)
+//     });
 
 
-})
+// })
+
+
 router.get('/teams/:teamName', function (req, res) {
 
     const teamToIDs = {
@@ -35,13 +39,10 @@ router.get('/teams/:teamName', function (req, res) {
         "suns": "1610612756"
     }
 
-    console.log(this.players)
     const teamName = req.params.teamName
     const teamArgId = teamToIDs[teamName]
-
-    const playersToShow = arrPlayers.filter(t => t.teamID = teamArgId)
-    console.log(playersToShow)
-    res.send(playersToShow)
+    const arrFilteredPlayers = arrPlayers.filter(t => t.teamID == teamArgId)
+    res.send(arrFilteredPlayers)
 
 })
 router.get('/players', function (req, res) {
@@ -55,10 +56,16 @@ router.get('/players', function (req, res) {
             pos: e.pos,
             jersey: e.jersey,
             isActive: e.isActive,
-            teamID: e.teams[e.teams.length - 1].teamId
+            teamID: e.teams[e.teams.length - 1].teamId,
+            img: `https://nba-players.herokuapp.com/players/${e.lastName}/${e.firstName}`
         }))
-        arrPlayers = this.players
-        res.send(this.players)
+        
+        const arrFilteredPlayers = this.players.filter(t => t.teamID == "1610612747" || 
+                                                            t.teamID == "1610612744" ||
+                                                            t.teamID == "1610612748" ||
+                                                            t.teamID == "1610612756")
+        arrPlayers = arrFilteredPlayers     
+        res.send(arrFilteredPlayers)
     });
 })
 router.get('/test', function (req, res) {

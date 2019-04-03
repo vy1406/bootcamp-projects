@@ -12,25 +12,11 @@ const fetch = function () {
         render(response)
     })
 }
-// ---------------------------
-// new 1.1
-// ---------------------------
-const getByTeam = function () {
-    let teamInput = $("#search-player-input").val()
-    $.get(`/teams/${teamName}`, function (response) {
-        console.log("searching by team")
-    })
-}
-$("#load-player-button").on("click", function (){ 
-    $.get(`/getTeams` ,function (response) {
-        console.log("loaded completed from pressing the button")
-        fetch()
-    })
-})
+
 $("#search-players-byTeam-button").on("click", function (){ 
     let teamName = $("#search-byTeam-input").val()
     $.get(`/teams/${teamName}`,function (response) {
-        console.log(`filtering by : ${teamName}`)
+        //console.log(`filtering by : ${teamName}`)
         render(response)
     })
 })

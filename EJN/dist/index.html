@@ -10,17 +10,21 @@
     <div id="search-player">
         <input type="text" id="search-byTeam-input" placeholder="seach by team..." />
         <button id="search-players-byTeam-button">Search Player</button>
-        <button id="load-player-button">Load Players</button>
+       
     </div>
+    <img src="" alt="">
     <hr>
     <div id="players"></div>
 
     <script id="players-template" type="text/x-handlebars-template">
 
         {{#each players}}
-            <div class="player visited" >
-                <p class="name">{{firstName}} </p>
-                <p class="name">{{teamID}} </p>
+            <div class="player" >
+                <span class="name">{{firstName}} {{lastName}}</span> <br>            
+                <span class="name">{{jersey}} </span>  <br>  
+                <img class ="myImage" src="{{img}}" alt=""> <br>
+                <span class="name">{{pos}} </span>  <br>
+                <span class="name">{{teamID}} </span>  <br>
                 <br>               
             </div>
         {{/each}}
