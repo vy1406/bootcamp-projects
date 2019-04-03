@@ -12,14 +12,33 @@ const fetch = function () {
         render(response)
     })
 }
-
-
-$("#search-player-button").on("click", function (){ 
-    let teamName = $("#search-player-input").val()
-    console.log("1: " + teamName)
-    $.get(`/team/${teamName}`,function (response) {
+// ---------------------------
+// new 1.1
+// ---------------------------
+const loadTeams = function() {
+    $.get(`/getTeams`,function (response) {
+        console.log("loaded completed")
+    })
+}
+const getByTeam = function () {
+    let teamInput = $("#search-player-input").val()
+    $.get(`/teams/${teamName}`, function (response) {
+        console.log("searching by team")
+    })
+}
+$("#load-player-button").on("click", function (){ 
+    $.get(`/getTeams` ,function (response) {
+        console.log("loaded completed")
+        fetch()
+    })
+})
+$("#search-players-byTeam-button").on("click", function (){ 
+    let teamName = $("#search-byTeam-input").val()
+    $.get(`/teams/${teamName}`,function (response) {
         console.log("GET complete")
+        fetch()
     })
 })
 
 fetch()
+loadTeams()
