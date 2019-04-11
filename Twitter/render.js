@@ -67,7 +67,6 @@ const Renderer = function () {
         const $button = $('<button>Comment</button>')
         $button.addClass("commentBtn")
         $button.on("click", function () {
-
             const inputValue = $(this).closest(".post").find(".inputComment").val()
             const postID = $(this).closest(".post").attr("id")
             if (inputValue != "") {
